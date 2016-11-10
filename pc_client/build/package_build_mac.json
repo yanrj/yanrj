@@ -1,0 +1,10 @@
+{
+	"dependencies": {
+		"mac-screen-capture":"^1.1.2",
+		"fs": "0.0.2",
+        "mt-files-downloader":"~0.2.5",
+        "fs-extra": "^0.30.0",
+        "unzip": "0.1.11",
+        "request":"2.74.0"
+	}
+}

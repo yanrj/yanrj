@@ -1,0 +1,37 @@
+<div class="sidebar" ng-include="'views/templates/sidebar.tpl.html'"></div>
+<!-- 主面板 -->
+<div class="main-wrap">
+  <div class="list contact-list">
+    <div groups-btn class="item groups-btn">
+      <img src="images/ico_groups.png" alt="群聊" />
+      <span class="name">群聊</span>
+    </div>
+    <div services-btn class="item services-btn">
+      <img src="images/ico_services.png" alt="公众号" />
+      <span class="name">公众号</span>
+    </div>
+  	<!-- <div apps-btn class="item apps-btn">
+  		<img src="images/ico_apps.png" alt="应用中心" />
+		  <span class="name">应用中心</span>
+  	</div> -->
+  	<div company-contacts-btn class="item company-contacts-btn">
+  		<img src="images/ico_company_contacts.png" alt="{{'others.contacts_application' | translate}}" />
+		  <span class="name">{{"others.contacts_application" | translate}}</span>
+  	</div>
+    <div friends-list class="friends-list box"></div>
+  </div>
+  <div ng-controller="ContactsDetailsCtrl" class="contactdet-warp details-wrap">
+    <div ng-show="contactStatus=='company'" class="details-wrap-title">{{"others.contacts_application" | translate}} <span class="company-count">( {{company_count}}人 )</span> </div>
+    <div ng-show="contactStatus=='services' || contactStatus=='ocuInfo'" class="details-wrap-title">公众号</div>
+    <div ng-show="contactStatus=='groups'" class="details-wrap-title">群聊</div>
+    <!--<div ng-show="contactStatus=='userInfo'" class="details-wrap-title">用户信息</div>-->
+  	<nav-crumbs></nav-crumbs>
+  	<div company-contacts ng-show="contactStatus=='company'" class="company-contacts"></div>
+  	<div services-contacts ng-show="contactStatus=='services'" class="services-contacts"></div>
+  	<!-- <div apps-contacts ng-show="contactStatus=='apps'" class="apps-contacts"></div> -->
+  	<div groups-contacts ng-show="contactStatus=='groups'" class="groups-contacts"></div>
+  	<!--<div user-info ng-show="showUserInfo" class="user-info"></div>-->
+    <div ocu-info ng-show="showOcuInfo" class="ocu-info"></div>
+    <span ng-show="contactLoading" class="contact-loading">正在加载</span>
+  </div>
+</div>

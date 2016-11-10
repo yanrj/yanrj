@@ -1,0 +1,173 @@
+@import "variables.scss";
+.sidebar {
+    float:left;
+    position:relative;
+    width:101px;
+    height:100%;
+    background:#dfe9f2;
+    .uhead {
+        display:block;
+        position:relative;
+        width:64px;
+        text-decoration: none;
+        margin: 15px auto 0px;
+        img {
+            width:100%;
+            height:100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    }
+    .user-name{
+        display: block;
+        text-align: center;
+        color: #333;
+        cursor: default;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        font-size: 13.3333px;
+        color: #535557;
+    }
+    nav.convbtns {
+        display:block;
+        width:100%;
+        margin-top:22px;
+        box-sizing:border-box;
+        /*a.btn-chat {
+            background:url("/images/btn_chat.png") center center no-repeat;
+            background-size:34px;
+        }*/
+        /*a.btn-chat:hover {
+            background-image:url("/images/btn_chat_hover.png");
+        }*/
+        /*a.btn-contact {
+            background:url("/images/btn_contact.png") center center no-repeat;
+            background-size:34px;
+        }*/
+        /*a.btn-contact:hover {
+            background-image:url("/images/btn_contact_hover.png");
+        }*/
+        /*a.btn-circle {
+            background:url("/images/btn_circle.png") center center no-repeat;
+            background-size:30px;
+        }*/
+        /*a.btn-circle:hover {
+            background-image:url("/images/btn_circle_hover.png");
+        }*/
+        /*a.btn-files {
+            background:url("/images/btn_file.png") center center no-repeat;
+            background-size:30px;
+        }*/
+        /*a.btn-files:hover {
+            background-image:url("/images/btn_file_hover.png");
+        }*/
+        /*a.btn-app-centre{
+            background: url("/images/btn-app-centre.png") center center no-repeat;
+            background-size:30px;
+        }*/
+    }
+    nav.sysbtns {
+        display:block;
+        box-sizing:border-box;
+        position: absolute;
+        bottom: 28px;
+        width: 100%;
+        a {
+            width:100%;
+            height:22px;
+            font-size: 0px;
+        }
+        a.btn-setting {
+            background:url("/images/btn_setting.png") center center no-repeat;
+            background-size:22px;
+            margin-bottom: 15px;
+        }
+        a.btn-logout {
+            background:url("/images/btn_logout.png") center center no-repeat;
+            background-size:22px;
+        }
+    }
+    nav a {
+        position:relative;
+        display:block;
+        width:100%;
+        height:36px;
+        font-size: 12px;
+        text-decoration: none;
+        text-indent: 45px;
+        line-height: 36px;
+        color: #666;
+        i {
+            position: absolute;
+            right: 20px;
+            top: 2px;
+            display: block;
+            width: 16px;
+            height: 14px;
+            background: #f15d46;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 9px;
+            font-style: normal;
+            text-align: center;
+            text-indent:0;
+            line-height: 12px;
+        }
+        .unread-circle{
+            right: 60px;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+        }
+        .new-version{
+            right: -6px;
+            top: -3px;
+            width: 8px;
+            height: 7px;
+        }
+    }
+    nav a.current{
+        background: #c8e1fa;
+        color: #1a85ff;
+    }
+    nav a img{
+        width: 25px;
+        display: block;
+        position: absolute;
+        left: 13px;
+        top: 5px;
+    }
+    nav a img.show{
+        display:block;
+    }
+    nav a img.hide{
+        display:none;
+    }
+    nav a.current img.show{
+        display:none;
+    }
+    nav a.current img.hide{
+        display:block;
+    }
+    nav .btn-chat i{
+        right: 55px;
+    }
+    nav .btn-contact i{
+        right: 8px;
+    }
+}
+/*.main a.btn-chat {
+    background-image:url("/images/btn_chat_click.png")!important;
+}
+.contacts a.btn-contact {
+    background-image:url("/images/btn_contact_click.png")!important;
+}
+.work-circle a.btn-circle {
+    background-image:url("/images/btn_circle_click.png")!important;
+}
+.files a.btn-files {
+    background-image:url("/images/btn_file_click.png")!important;
+}
+.app-centre a.btn-app-centre{
+    background-image: url("/images/btn-app-centre_click.png")!important;
+}*/

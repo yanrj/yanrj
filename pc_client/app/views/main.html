@@ -1,0 +1,45 @@
+<div class="sidebar" ng-include="'views/templates/sidebar.tpl.html'"></div>
+<!-- 主面板 -->
+<div class="main-wrap">
+  <div conversations-list class="list">
+    <div class="box">
+      <div conversations-item ng-repeat="item in items track by item.id" ></div>
+    </div>
+    <div class="box" isshow="false" style="display:none;">
+      <div class="return_list">
+        {{catlogTitle}}
+        <div class="return_btn">&lt;</div>
+      </div>
+      <div conversations-item ng-repeat="item in catlogItems track by item.id" ></div>
+    </div>
+    <!-- 搜索结果下拉框 -->
+    <div search-result-box class="search-result-box" ng-show="showBox">
+    </div>
+    <span ng-show="listLoading" class="loading">正在加载</span>
+  </div>
+  <div class="conversation-wrap">
+    <div class="conversation-bg"></div>
+    <div conversation-content-wrap ng-class="{'ocu-conv':isOcu, 'no-publisher': isBasicOcu}" class="con-wrap" ng-controller="ConversationCtrl">
+      <div class="con-box">
+        <p class="fresh-tips">新消息</p>
+        <div style="float:left;width:100%;" class="conv-list">
+          <div conversation-content ng-class="{system: con.system}" data-id="{{conId}}" class="item {{person}} {{msgType}} {{system}}" ng-repeat="con in contents track by con.id"></div>
+        </div>
+      </div>
+      <span class="conv-loading" ng-show="loading">正在加载</span>
+      <ocu-btns ng-hide="isBasicOcu"></ocu-btns>
+      <div conversation-info-box ng-class="infoDisabled ? 'disabled' : ''" class="conv-info-box" ng-show="showConvInfo"></div>
+    </div>
+    <div menu-item-more></div>
+    <div publisher></div>
+  </div>
+</div>
+<div class="userinfo-wrap" style="display:none;">
+  <div user-info ng-show="userinfo" id="userinfoCard" class="user-card"></div>
+</div>
+<div class="group-member-selector-wrap" style="display:none;">
+  <div group-member-selector id="groupMemberSelector" class="group-member-selector"></div>
+</div>
+<div class="select-conversations-item-wrap" style="display:none;">
+  <div select-conversations-item id="selectConversationsItem" class="select-conversations-item"></div>
+</div>

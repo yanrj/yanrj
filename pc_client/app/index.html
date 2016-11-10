@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html class="no-js" ng-app="mxWebClientApp">
+  <head ng-controller="AppHead">
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="vendor/flexpaper/css/flexpaper.css" />
+    <link rel="stylesheet" href="vendor/emoji/emoji.css" />
+    <link rel="stylesheet" href="vendor/js-tree/style.css" />
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body class="nw-app-{{appName}} nw-loading" ng-class="pageClass" ng-controller="AppCtrl" drop-wrap>
+    <header ng-controller="HeaderCtrl">
+        <div class="title-box">
+            <div class="community-switcher" community-switcher>
+                <h1 class="app-logo" title="{{networkName || appNameCn}}" ng-bind-html="networkName || appNameCn"></h1>
+            </div>
+            <p search-input class="search-input">
+                <input class="search" name="search" ng-model="searchResultValue" placeholder="搜索"/> 
+                <a href="javascript:;" class="search-remove" ng-show="showRemove"></a>
+            </p>
+        </div>
+        <img class="companyIco ng-hide" src="images/ico_company_contacts.png" />
+        <button btn-new-conv title="{{btnName}}" class="btn-new-conv">{{btnName}}</button>
+        <nav window-bar>
+            <button class="sysbtn min">最小化</button>
+            <button class="sysbtn max">最大化</button>
+            <button class="sysbtn close">关闭</button>
+        </nav>
+    </header>
+    <div class="container main-html" ng-controller="MainCtrl">
+        <div class="container-loading-bg">
+            <p class="container-loading">正在加载...</p>
+        </div>
+    </div>
+    <div class="container" ng-view=""><p class="container-loading">正在加载...</p></div>
+    <div ng-controller="PopMessageCtrl" ng-show="showPopMessage" ng-class="{'msg': popType === 1, 'err': !popType}" class="message-pop {{ngPopInitClass}}">
+        <span ng-bind="popMessageContent"></span>
+    </div>
+    <div ng-cloak ng-show="showReconnectBtn" btn-reconnect></div>
+    <div class="pop-wrap" style="display:none;">
+        <div self-info id="selfInfo" class="self-info"></div>
+        <div setting id="setting" class="setting"></div>
+        <div tips-pop id="tipsPop"></div>
+        <div upload-image-preview id="uploadImagePreview"></div>
+        <div id="pluginStatus">
+            <div id="pluginLoading" class="plugin-loading"><span class="plugin-loading-text">正在安装...</span></div>
+            <div id="pluginInstalled" class="plugin-installed"><span class="plugin-installed-text">安装成功 ! </span></div>
+        </div>
+
+    </div>
+    <!-- <iframe style="position: absolute;top:0;left:0;" src="vendor/anychats/AnyChatWebDemo/index.html" width=500 height=500></iframe> -->
+    <div class="file-drop-penel">
+        <div class="available-area" >{{dropTipTxt}}</div>
+    </div>
+    <audio-msg-notification></audio-msg-notification>
+    <file-saver></file-saver>
+    <hot-key></hot-key>
+    <div id="voice-plugin" data-drag="true" jqyoui-draggable>
+        <div class="video-title">与 <span></span> 通话</div>
+        <div class="photo"><img src="" width="80" height="80"></div>
+    </div>
+    <div id="slideWindow">
+        <div class="title">
+            <span></span>
+            <input tabindex="-1" type="button" value="×" class="close" />
+        </div>
+        <div class="slide-iframe"></div>
+    </div>
+    <iframe name="fileDownloadIfm" style="display:none"></iframe>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-file-upload/angular-file-upload.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/dexie/dist/dexie.min.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="bower_components/magnific-popup/dist/jquery.magnific-popup.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-dragdrop/src/angular-dragdrop.js"></script>
+    <!-- endbower -->
+    <script src="vendor/moment/moment.js"></script>
+    <script src="vendor/moment/lang/zh-cn.js"></script>
+    <script src="vendor/emotions/jquery.emotions.js"></script>
+    <script src="vendor/flexpaper/js/flexpaper.js"></script>
+    <script src="vendor/flexpaper/js/flexpaper_handlers.js"></script>
+    <script src="vendor/at/at.js"></script>
+    <script src="vendor/at/caret.js"></script>
+    <script src="vendor/hotkey/keycode.js"></script>
+    <script src="vendor/aes/aes.js"></script>
+    <script src="vendor/aes/encrypt.js"></script>
+    <script src="vendor/emoji/emoji.js"></script>
+    <script src="vendor/js-tree/jstree.js"></script>
+    <script src="vendor/checkonline/online.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/config.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/controllers/index.js"></script>
+    <script src="scripts/controllers/app.js"></script>
+    <script src="scripts/controllers/sidebar.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/header.js"></script>
+    <script src="scripts/controllers/contacts.js"></script>
+    <script src="scripts/controllers/tree-contacts.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/work-circle.js"></script>
+    <script src="scripts/controllers/files.js"></script>
+    <script src="scripts/services/index.js"></script>
+    <script src="scripts/services/app.js"></script>
+    <script src="scripts/services/security.js"></script>
+    <script src="scripts/services/cache.js"></script>
+    <script src="scripts/services/sidebar.js"></script>
+    <script src="scripts/services/notifications.js"></script>
+    <script src="scripts/services/setting.js"></script>
+    <script src="scripts/services/eggs.js"></script>
+    <script src="scripts/services/community.js"></script>
+    <script src="scripts/services/window.js"></script>
+    <script src="scripts/services/storage.js"></script>
+    <script src="scripts/services/db.js"></script>
+    <script src="scripts/filters/filters.js"></script>
+    <script src="scripts/directives/global.js"></script>
+    <script src="scripts/directives/logout.js"></script>
+    <script src="scripts/directives/sidebar.js"></script>
+    <script src="scripts/directives/window.js"></script>
+    <script src="scripts/directives/setting.js"></script>
+    <script src="scripts/directives/community.js"></script>
+    <script src="modules/conversations/index.js"></script>
+    <script src="modules/conversations/conversations_list.js"></script>
+    <script src="modules/conversations/conversations_list_directive.js"></script>
+    <script src="modules/conversations/conversations_list_service.js"></script>
+    <script src="modules/conversations/conversations_list_filter.js"></script>
+    <script src="modules/conversations/conversations_item.js"></script>
+    <script src="modules/conversations/conversations_item_directive.js"></script>
+    <script src="modules/conversations/conversations_item_controller.js"></script>
+    <script src="modules/conversations/conversations_item_service.js"></script>
+    <script src="modules/conversations/conversations_info.js"></script>
+    <script src="modules/publisher/controller.js"></script>
+    <script src="modules/publisher/directive.js"></script>
+    <script src="modules/publisher/service.js"></script>
+    <script src="modules/publisher/emotions.js"></script>
+    <script src="modules/contacts/index.js"></script>
+    <script src="modules/contacts/friends.js"></script>
+    <script src="modules/contacts/company.js"></script>
+    <script src="modules/contacts/ocus.js"></script>
+    <script src="modules/contacts/ocus_directive.js"></script>
+    <script src="modules/contacts/groups.js"></script>
+    <script src="modules/contacts/groups_directive.js"></script>
+    <script src="modules/tree_contacts/index.js"></script>
+    <script src="modules/crumbs/index.js"></script>
+    <script src="modules/user/index.js"></script>
+    <script src="modules/user/directive.js"></script>
+    <script src="modules/user/service.js"></script>
+    <script src="modules/work_circle/index.js"></script>
+    <script src="modules/files_panel/controller.js"></script>
+    <script src="modules/files_panel/directive.js"></script>
+    <script src="modules/files_panel/service.js"></script>
+    <script src="modules/rtc/rtc.js"></script>
+    <script src="modules/rtc/file.js"></script>
+    <script src="modules/apps_center/controller.js"></script>
+    <script src="modules/apps_center/directive.js"></script>
+    <script src="modules/apps_center/service.js"></script>
+    <script src="modules/search/controller.js"></script>
+    <script src="modules/search/directive.js"></script>
+    <script src="modules/search/service.js"></script>
+    <script src="modules/hotkey/controller.js"></script>
+    <script src="modules/hotkey/directive.js"></script>
+    <script src="modules/hotkey/service.js"></script>
+    <script src="modules/collection/controller.js"></script>
+    <script src="modules/collection/directive.js"></script>
+    <script src="modules/collection/service.js"></script>
+    <!-- endbuild -->
+    <script src="plugins/mx_plugins/mx_plugins_config.js"></script>
+    <script src="vendor/easyrtc/easyrtc_ft.js"></script>
+    <!--插件-->
+    <script type="text/javascript">
+    var path = require('path'),
+    absolutePath=path.resolve('./scripts'),
+    config = require(absolutePath+"/config.json");
+    document.write('<script src="'+config.URL+'/webrtc/socket.io/socket.io.js?timestamp=1820"><\/script>');
+    document.write('<script src="'+config.URL+'/webrtc/easyrtc/easyrtc.js?timestamp=1820"><\/script>');
+    document.write('<script src="'+config.URL+'/comet/client.js?timestamp=1820"><\/script>');
+    document.write('<script src="'+config.URL+'/connect/mx_loader.js?timestamp=1820" data-client-id="4"><\/script>');
+
+        var hasScreenshotPlugin = false;
+        try{
+            var mimetype = navigator.mimeTypes["application/x-dingscreenshot-plugin"];
+            if(mimetype){
+                hasScreenshotPlugin = true;
+            }else{
+                hasScreenshotPlugin = false;
+            }
+        }catch(e){
+            hasScreenshotPlugin = false;
+        }
+
+        if(hasScreenshotPlugin){
+            document.write('<embed id="screenshotPlugin" wmode="opaque" width="1" height="1" type="application/x-dingscreenshot-plugin"></embed>');
+        }
+        //判断是windows加上外边框
+        if(/^win/.test(process.platform)){
+            $('html').addClass('windows')
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="sidebar" ng-include="'views/templates/sidebar.tpl.html'"></div>
+<!-- 主面板 -->
+<div class="main-wrap">
+  <div work-circle-list class="list">
+    <div class="box">
+      <div work-circle-item ng-controller="AllWorkCircleCtrl"></div>
+      <div work-circle-item ng-repeat="item in items" ></div>
+    </div>
+  </div>
+  <div class="work-circle-wrap">
+    <div class="frame-loading"><b class="conv-loading">加载中......</b> </div>
+    <iframe work-circle-frame ng-src="{{url}}" nwdisable id="work-circle" class="work-circle-frame">
+    </iframe>
+  </div>
+</div>

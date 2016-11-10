@@ -1,0 +1,141 @@
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //设置table中偶数行和奇数行的颜色
+            $("table tr:even").attr("class", "even_row"); // 偶数行颜色
+            $("table tr:odd").attr("class", "odd_row"); // 奇数行颜色
+            // $("table tr:first-child").attr("class", "");
+            var tabValue = $("#tabValue").val();
+
+            if (tabValue == '5') {
+                //Default Action
+                $(".tab_content").hide(); //Hide all content    
+                $("ul.tabs li:last-child").addClass("active").show(); //Activate first tab
+                $(".tab_content:last-child").show(); //Show first tab content
+            } else {
+                //Default Action
+                $(".tab_content").hide(); //Hide all content    
+                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+                $(".tab_content:first").show(); //Show first tab content
+            }
+
+            //On Click Event
+            $("ul.tabs li").click(function () {
+                $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                $(this).addClass("active"); //Add "active" class to selected tab
+                $(".tab_content").hide(); //Hide all tab content
+                var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+                $(activeTab).fadeIn(); //Fade in the active content
+
+                return false;
+            });
+
+            $("#startTime, #endTime").calendar();
+
+            //输入与会人员的信息，返回与会人员的名字+状态
+            $("#confUserList").blur(function () {
+                console.log();
+                var confUserList = $("#confUserList").val();
+                confUserList = $.trim(confUserList);
+                if (confUserList == null || confUserList == "") {
+                    alert("请输入用户！");
+                    return;
+                }
+                var confs = confUserList.split(",");
+                var table2 = $("#userStatusTable");
+                table2.find("tbody").html("");
+                var rowHtml = "";
+                for (var i = 0; i < confs.length; i++) {
+                    var conf = confs[i];
+                    conf = $.trim(conf);
+                    if (conf != "") {
+                        rowHtml += "<tr>";
+                        rowHtml += "     <td style=\"vertical-align: middle;font-family:Microsoft Yahei , Verdana, Arial, Helvetica, AppleGothic,sans-serif;\">" + (i + 1) + "</td>";
+                        rowHtml += "     <td style=\"vertical-align: middle; \"><label id='account' name='account'>" + conf + "</label></td>";
+                        rowHtml += "     <td style=\"vertical-align: middle;\">";
+                        rowHtml += "         <a href=\"#\" onclick=\"javascript:showIMChat('" + conf + "')\">即时消息</a>";
+                        rowHtml += "         <a href=\"#\" onclick=\"javascript:makeVideoCall('" + conf + "','')\">视频呼叫</a>";
+                        rowHtml += "         <a href=\"#\" onclick=\"javascript:showCreateMMMeeting()\">语音会议</a>";
+                        rowHtml += "     </td>";
+                        rowHtml += "</tr>";
+                    }
+                }
+                table2.find("tbody").html(rowHtml);
+
+                for (var i = 0; i < confs.length; i++) {
+                    var conf = confs[i];
+                    conf = $.trim(conf);
+                    if (conf != "") {
+                        showStatus(document.getElementById('status' + i), conf);
+                    }
+                }
+
+            });
+
+            //预定会议
+            $("#creatConfButton").click(function () {
+                //判断各必填项是否都有值
+                if (null == $("#confUserList").val() || "" == $("#confUserList").val()) {
+                    alert("用户列表为空");
+                }
+                showCreateMMMeeting();
+            });
+
+        });
+
+        //显示用户状态
+        function showStatus(src, user) {
+            OneSpaceStatsCtrl(user, "", "", src);
+        }
+        //弹出呼叫框体
+        function showPanel(src, user) {
+            chooseDial(src, user);
+        }
+
+    </script>
+</head>
+<body>
+    <input type="hidden" id="tabValue" name="tabValue" value="${tabValue }" />
+    <div id="divObj">
+  
+    </div>
+    <div style="width: 600pt; height: auto; display:table; height: 188.5pt; position:relative;">
+        <div class="container">
+            <!--  <h1>
+            通用Demos</h1>-->
+            <ul class="tabs">
+                <li><a href="#tab1">IP电话 Demo</a></li>
+            </ul>
+            <div class="tab_container">
+                <div id="tab1" class="tab_content">
+                    <p style="text-align:left;">
+                        <span>UC人员列表：</span>
+                        <textarea id="confUserList" name="confUserList"></textarea>
+                        <span>&nbsp;&nbsp;&nbsp;注：人员间以英文逗号间隔</span>
+                    </p>
+                    <p style="text-align:left;">
+                        <span>人员当前状态：</span></p>
+                    <table border="0" cellspacing="0" cellpadding="0" class="dataTable" id="userStatusTable">
+                        <thead>
+                            <tr>
+                                <th class="dataTableHeader" style="width: 40px;">
+                                    序号
+                                </th>
+                                <th class="dataTableHeader" style="width: 80px;">
+                                    账号
+                                </th>
+                                <th class="dataTableHeader">
+                                    功能
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <!--<p align="center"><input type="button" value="创建会议" id="creatConfButton" name="creatConfButton" class="buttonCss"></input></p>-->
+                    <p align="center">
+                        <font color="FF0000"><span id="errorInfo"></span></font>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,17 @@
+<div class="sidebar" ng-include="'views/templates/sidebar.tpl.html'"></div>
+<!-- 主面板 -->
+<div class="main-wrap">
+  <div files-list-panel class="list">
+    <div class="box">
+      <h5 class="my-files">我的文件</h5>
+      <div btn-file-item ng-controller="FilesMyFollowedCtrl"></div>
+      <div btn-file-item ng-controller="FilesMyUploadedCtrl"></div>
+      <div btn-file-item ng-controller="FilesMyDownloadCtrl"></div>
+      <h5 class="my-work-circle" ng-show="validNewModulesCircle">工作圈</h5>
+      <div btn-file-item ng-repeat="item in items" ng-show="validNewModulesCircle"></div>
+    </div>
+  </div>
+  <div class="files-wrap">
+    <files-list-wrap></files-list-wrap>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+﻿{
+    "name": "Minxing",
+    "name_cn": "敏行",
+    "conversations_title": "敏信",
+    "version_code": 999999999,
+    "card_url": "http://www.baidu.com",
+    "version": "4.1.0",
+    "api_context": "/api/v1/",
+    "URL": "http://dev3.dehuinet.com:8013",
+    "grant_type": "password",
+    "client_id": "4"
+}

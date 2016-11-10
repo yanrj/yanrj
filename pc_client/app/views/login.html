@@ -1,0 +1,34 @@
+<div ng-show="!isLogin" class="login-wrap">
+  <form ng-show="loginType=='form'" name="mx_login" target="http://huatai.dehuinet.com:84/oauth2/token" ng-submit="login()">
+    <input type="hidden" ng-model="user.grant_type" name="grant_type" />
+    <input type="hidden" ng-model="user.client_id" name="client_id" />
+    <input type="hidden" ng-model="user.app_secret" name="app_secret" />
+    <input type="text" ng-model="user.login_name" placeholder="帐号" name="login_name" />
+    <input type="password" ng-model="user.password" placeholder="密码" name="password" />
+    <input type="submit" value="登　　　录" />
+    <label class="auto-login"><input type="checkbox" ng-model="autoLogin" />自动登录</label>
+    <div class="error-wrap"><strong ng-show="error" class="error-tip">{{error}}</strong><b ng-show="error"></b></div>
+    <a href="javascript:;" ng-click="sweepQR()" target=""><img src="../images/origin/two_code_logo.png" alt="二维码logo"></a>
+  </form>
+
+  <div ng-show="loginType=='QR'" class="mc-widget-qrlogin" id="mc-widget-qrlogin"> 
+    <div class="mc-content-unscanned">
+      <img src="" alt="二维码扫描"/>
+      <div class="mc-msg" style="color:#fff">扫一扫, 快速登录</div>
+      <a class="mc-back" ng-click="backLogin()" href="javascript:;">返&nbsp&nbsp&nbsp回</a>
+    </div>
+
+    <div class="mc-content-scanned">
+      <img src="">
+      <div class="mc-username" ></div>
+      <div class="mc-msg">
+          请在手机点击确认以登录
+             <div class="mc-reset"><a href="javascript:void(0);" ng-click="backScann()" style="color:#fff" >返回扫二维码登录</a></div>
+      </div>
+      <div class="mc-msg loading">
+            正在登录...
+      </div>
+    </div>
+  </div>
+
+</div>

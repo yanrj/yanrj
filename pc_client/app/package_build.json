@@ -1,0 +1,32 @@
+{
+	"name": "Minxing",
+	"version": "0.0.1",
+	"description": "Minxing客户端",
+	"user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36 MinxingMessenger pc_client",
+	"nodejs": true,
+	"main": "app://desktop.minxing365.com/index.html",
+	"chromium-args": "--disable-direct-write --allow-running-insecure-content --remember-cert-error-decisions --ignore-certificate-errors --ignore-urlfetcher-cert-requests",
+	"window": {
+		"icon": "icon.png",
+		"toolbar": false,
+		"title": "",
+		"width": 300,
+		"height": 400,
+		"min_width": 300,
+		"min_height": 400,
+		"resizable":true,
+		"show_in_taskbar":true,
+		"frame":false,
+		"kiosk":false
+	},
+	"webkit": {
+		"plugin": true
+	},
+	"dependencies": {
+    	"fs": "0.0.2",
+    	"mt-files-downloader":"~0.2.5",
+    	"fs-extra": "^0.30.0",
+    	"unzip": "0.1.11",
+   	    "request":"2.74.0"
+	}
+}

@@ -1,0 +1,34 @@
+{
+  "name": "nw-minxin",
+  "version": "0.0.1",
+  "description": "敏信PC客户端",
+  "user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.76 Safari/537.36 MinxingMessenger pc_client",
+  "nodejs": true,
+  "main": "http://127.0.0.1:9200",
+  "node-remote": "127.0.0.1, dev3.dehuinet.com:8013,test.dehuinet.com:8030,192.168.30.249:9999",
+  "chromium-args": "--disable-direct-write --allow-running-insecure-content --remember-cert-error-decisions --ignore-certificate-errors --ignore-urlfetcher-cert-requests",
+  "window": {
+    "icon": "icon.png",
+    "toolbar": true,
+    "title": "",
+    "width": 300,
+    "height": 400,
+    "min_width": 300,
+    "min_height": 400,
+    "resizable": true,
+    "show_in_taskbar": true,
+    "frame": true,
+    "kiosk": false
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "dependencies": {
+    "fs": "0.0.2",
+    "fs-extra": "^0.30.0",
+    "mt-files-downloader": "~0.2.5",
+    "node-webkit-winreg": "0.0.13-1",
+    "unzip": "0.1.11",
+    "request":"2.74.0"
+  }
+}

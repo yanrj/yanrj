@@ -1,0 +1,10 @@
+<!-- 聊天内容模板 -->
+<!-- 当消息类型不是notification时，显示对话中用户的头像；否则隐藏头像-->
+<i class="btn-select" ng-show="showMenuSelectBtn && !con.system"></i>
+<a href="#userinfoCard" class="uhead" ng-class="{'ocu-head': isOcu}" btn-user data-type="popup" data-ocu="{{::isOcu}}" data-uid="{{::uid}}" title="{{::user_name}}" ng-show="msgType != 'notification'">
+	<img ng-src="{{::user_head | userHeadFilter:con:this}}" alt="头像" />
+</a>
+<!-- 当消息类型不是notification时，则显示对话样式.content；否则显示"通知"的样式 -->
+<div ng-class="{'content': msgType !='notification', 'has-name': person === 'other' && isMulti && !con.system}" class="notify" conversation-message>
+	<i class="username" >{{::user_name}}</i>
+</div>

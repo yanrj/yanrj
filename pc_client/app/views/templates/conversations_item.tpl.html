@@ -1,0 +1,10 @@
+<div class="item new-conv-btn" ng-class="{'top': top,'muted':muted}"  title="{{name}}" data-id="{{id}}">
+    <img ng-src="{{head}}" alt="头像" />
+    <span class="name">{{name}}</span>
+    <!-- <span class="name" ng-bind-html="name | encodeHTMLTag"></span> -->
+    <span class="info"><i><font ng-show="draft && !callMe" class="draft-tip">[草稿]</font><font ng-show="callMe"  class="draft-tip">[有人@我]</font>{{lastName}}</i><i class="send-failed" ng-show="!sendStatus"></i><b ng-bind-html="lastMessage | encodeHTMLTag | emotionsFilter"></b></span>
+    <span class="item_tip">2</span>
+    <time datetime="{{item.updated_at | date:'yyyy-MM-dd'}}">{{item.updated_at | momentFilter}}</time>
+    <i class="unread-num" ng-show="unreadNum" title="{{unreadNum}}条未读">{{unreadNum > 99 ? '...' : unreadNum}}</i>
+    <i class="conv-muted" ng-show="muted" ></i>
+</div>

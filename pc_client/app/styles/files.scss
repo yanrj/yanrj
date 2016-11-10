@@ -1,0 +1,197 @@
+@import "variables.scss";
+.files-list-wrap {
+	float:left;
+	width:100%;
+	height:100%;
+	.files-type-nav {
+		float:left;
+		width:100%;
+		height:70px;
+		/*background-image:linear-gradient(#e8e8e8, #c3c3c3);*/
+		border-bottom: 2px solid #1986fe;
+		nav {
+			/*float:left;*/
+			ul {
+				/*float:left;*/
+				list-style:none;
+				margin:18px auto 0;
+				padding:0;
+				width: 320px;
+				height:32px;
+				border:1px solid #1986fe;
+				border-radius:3px;
+			}
+			li {
+				float:left;
+				width:80px;
+				height:32px;
+				padding-top:3px;
+				/*border-right: 1px solid #1986fe;*/
+				/*background-image:linear-gradient(#f3f3f3, #c9c9c9);*/
+				border-right: 1px solid #1986fe;
+				cursor:pointer;
+				line-height:25px;
+				text-align:center;
+				color: #1986fe;
+				box-sizing:border-box;
+				span {
+					display:block;
+					height:16px;
+					line-height:14px;
+					padding-top: 5px;
+					/*color: #1986fe;*/
+					box-sizing:border-box;
+				}
+			}
+			li:first-child {
+				span {border-left:0;}
+			}
+			li:last-child {
+				border-right: 0;
+				span {border-right:0;}
+			}
+			li:hover {
+				/*background-image:linear-gradient(#fff, #ccc);*/
+				background-color: #009cf4;
+				color: #fff;
+			}
+			li.act {
+				/*background-image:linear-gradient(#686868, #909090);*/
+				background-color: #1986fe;
+				color:#fff;
+				span {border:0;}
+			}
+		}
+	}
+	.files-box {
+		position:relative;
+		float:left;
+		width:100%;
+		height:calc(100% - 72px);
+		overflow-y:scroll;
+		ul {
+			float:left;
+			width:100%;
+			height:auto;
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+		li {
+			float:left;
+			width:100%;
+			height:120px;
+			padding:20px;
+			border-bottom:1px solid #ddd;
+			box-sizing:border-box;
+			a.thumb {
+				float:left;
+				width:90px;
+				height:90px;
+				margin-right:20px;
+				background:#eee;
+				text-align:center;
+				line-height:90px;
+				cursor: default;
+				img {
+					width: 90px;
+					height: 90px;
+				}
+			}
+			h5 {
+				float:left;
+				font-size:14px;
+				margin:0 0 5px 0;
+				width:calc(100% - 200px);
+				max-height: 40px;
+				overflow: hidden;
+				word-wrap: break-word;
+			}
+			span.info {
+				float:left;
+				width:calc(100% - 200px);
+				font-size:12px;
+				max-height: 17px;
+				overflow: hidden;
+			}
+			time {
+				float:left;
+				width:calc(100% - 200px);
+				font-size:12px;
+				color:#4a4a4a;
+			}
+			a.downloads,a.view {
+				float:right;
+				display: inline-block;
+				width: 80px;
+				height: 25px;
+				padding-top: 3px;
+				margin-top:-15px;
+				background-image: linear-gradient(#00a2fa, #0086e7);
+				border: 1px solid #007ad0;
+				border-radius: 5px;
+				box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+				text-align: center;
+				color: #fff;
+				text-decoration: none;
+				text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+				letter-spacing: 2px;
+			}
+			a.downloads:hover,a.view:hover {
+				background-image: linear-gradient(#6DCBFD, #1795F0);
+			}
+		}
+		.loading-more {
+			float:left;
+			width:100%;
+			height: 35px;
+			background: #f7f7f7 url("/images/loading_01.gif") 270px 10px no-repeat;
+			border-bottom: 1px solid #d1d1d1;
+			line-height: 35px;
+			text-align: center;
+		}
+		.loading-files {
+	        position:absolute;
+	        left:50%;
+	        top:10px;
+	        width:150px;
+	        height:30px;
+	        margin-left:-80px;
+	        padding-left:15px;
+	        background: rgba(230,230,230,1) url("/images/loading_01.gif") 37px 7px no-repeat;
+	        border: 1px solid #ddd;
+	        border-radius:5px;
+	        box-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+	        text-align:center;
+	        line-height:28px;
+	        color: #8B8B8B;
+	    }
+	    .loading-files.ng-hide-add,
+	    .loading-files.ng-hide-remove {
+	        -webkit-transition:0.3s linear all;
+	        transition:0.3s linear all;
+	        display:block!important;
+	        opacity:1;
+	        top:10px;
+	    }
+	    .loading-files.ng-hide {
+	        opacity:0;
+	        top:0px;
+	    }
+		p.nothing {
+			display: block;
+			margin-top: 132px;
+			text-align: center;
+			font-size: 50px;
+		    color: #ccc;
+			background: url("/images/ico_noData.png") center 10px no-repeat;
+			font-size: 14px;
+			background-size: 90px 90px;
+			line-height: 248px;
+		}
+	}
+	.files-box.uninit {
+		margin-top:45px;
+		overflow-y:hidden;
+	}
+}

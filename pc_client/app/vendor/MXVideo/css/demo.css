@@ -1,0 +1,224 @@
+﻿html,body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+#LOADING_GREY_DIV{ display:none; width:100%; height:100%; position:absolute; z-index:44;}
+#LOADING_DIV{ position:absolute; display:none; z-index:45;}
+#MAIN_DIV{ text-align:center; width:100%; height: 100%;}
+
+#LOG_DIV_BODY{ z-index:-1; width:400px; height:200px; right:20px; bottom:0; position:fixed; display:none;}
+#LOG_DIV_CONTENT{ padding:10px 10px 10px 10px; background-color:#323232; font-size:12px; width:400px; height:155px; text-align:right;}
+#LOG_DIV_TITLE{ height:15px; margin-left:10px; font-size:12px; line-height:15px;text-align:right;}
+
+#prompt_div{ background-color:White; border:1px solid black; width:500px; height:300px; margin-left: auto; margin-right:auto; margin-top:35%; display:none;}
+.close_div{ height:45px; width:480px; margin:0px 10px 0px 10px;border-bottom:1px solid #CCCCCC;}
+#prompt_div_BR{ border-top:1px solid #CCCCCC;height: 45px; margin:40px 10px 10px 10px; width:480px; text-align:right;}
+#prompt_div_BR a{ font-size:12px; color:Blue;}
+#prompt_div_btn_load{ width:110px; height:35px; line-height:35px; color:White; border:1px solid #915700; background-color:#ff8100; margin-left:auto; margin-right:auto; cursor:pointer;}
+#prompt_div_line1{ height:70px; line-height:70px; font-size:12px; color: #999999; text-align:center;}
+#prompt_div_line2{ height:60px; line-height:50px; color: #FF9900; font-size:14px; font-weight: bolder;}
+#prompt_div_headline1{ font-size:15px; width:100px; height:50px; line-height:60px; text-align:center; float:left;}
+#prompt_div_headline2{ font-size:12px; width:38px; height:50px; line-height:60px; text-align:center; float:right; cursor:pointer;}
+
+#login_div{ display:none; border:1px solid black; width:320px; background-color: #FAFADD; margin-left: auto; margin-right:auto;}
+.wordage{ font-size:15px; width:320px; height:40px; line-height:40px;}
+#Btn_div{ width:320px; height:55px;}
+#cutoff_div{ height:5px; border-bottom:1px solid black; margin:0px 5px 0px 5px;}
+.Btn{ background-color:#E6E6E6; margin:10px 20px 20px 20px; width:80px; height:25px; line-height:25px; text-align:center; font-size:15px; border:1px solid black; cursor:pointer;}
+#setting_div{ width:320px; height:78px; display:none;}
+#setting_div_input{ font-size:13px; text-align:left; padding-top:18px; padding-left: 20px; border-top:1px solid black;}
+
+#hall_div{ background-color:#9CAAC1; border:1px solid black; width:610px; height:400px; margin-left: auto; margin-right:auto; display:none;}
+#hall_div_myinfo{ width:610px; height:375px;}
+#hall_div_myinfo1{ background-color:White; margin-left:20px; float:left; width:190px; height:355px; overflow:hidden; border:1px solid black; font-family:微软雅黑; font-size:13px;}
+.hall_div_center{ text-align:center; width:65%;}
+.hall_div_left{ text-align:right; width:35%;}
+.hall_div_table_room{  background-color:#E6E6E6; width:50px; height:50px; float:left; cursor:pointer; line-height:50px; font-family: 华文楷体; border:1px solid black; margin:10px 5px 10px 11px;}
+#hall_div_table{ background-color:White; margin-right:20px; border:1px solid black; width:350px; height:355px; float:right;}
+#hall_div_operation{ width:350px; height:200px;}
+#EnterRoomBtn{ width:40px; text-align:center; cursor:pointer; border:1px solid black; background-color:#E6E6E6;}
+#advancedsetting{ float:left;cursor:pointer; background-color:#E6E6E6; height:25px; width:80px; border:1px solid black; text-align:center;}
+#ExitSystemBtn{ float:right; margin-right:15px; margin-top:3px; cursor:pointer; font-size:13px;}
+#hall_div_operation_div1{ height:30px; width:350px; margin-top:170px;}
+#hall_div_operation_div2{ width:350px; margin-left:20px; font-size:14px;}
+#hall_div_customroomdiv{ text-align:left; float:left; width:250px;}
+#hall_div_customroomdiv_btn{ float:left; width:95px; text-align:left;}
+
+#room_div{ display:none; z-index:20; margin-left:500px; height: 100%; width: 100%; background-color:#323232; margin-left: auto; margin-right:auto;}
+#room_div_userlist{ overflow:hidden; background-color:White; width:200px; height:346px; border:1px solid black; display: none;}
+#room_div_myobject{ width:100%; height:93%;position: absolute;top: 0;left: 0;z-index: 10; overflow:hidden;}
+#room_div_msgimg{ background:no-repeat; width:500px; height:202px; padding:11px 0px 0px 20px;}
+#room_div_otherobject{   width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  bottom: 38px;
+  left: 0;
+  z-index: 9;}
+#ANYCHAT-VIDEO-LOCAL { width:195px; height:147px; float:left;margin:0 auto;}
+#AnyChatRemoteVideoDiv{ width:100%; height:100%; text-align:center;}
+#ReceiveMsgDiv{ background-color:White; width:464px; height:137px; border:1px solid #7884ac; overflow-y:hidden;}
+#room_div_close{ width:750px; height:25px;}
+#room_div_right{position: relative; width: 100%;height: 100%;background: #323232;}
+#room_div_right_MsgTxt{ width:325px; height:40px; padding-top:10px; float:left;}
+#RemoteAudioVolume{ width:0px; height:6px; background-color:#00FF00;}
+#LocalAudioVolume{ width:0px; height:6px; background-color:#00FF00;}
+#room_div_userlist a{ margin-left:5px;}
+#room_div_userlist img{ margin-top:2px;}
+.CLASS_VIDEOSCREEN1{ float:left;width:176px; height:130px; text-align:center;cursor:pointer;z-index:200;position: relative;  margin-top: 408px;}
+.CLASS_VIDEOSCREEN2{ float:left;width:247px; height:346px; text-align:center;border:1px solid #7884ac;}
+.CLASS_VIDEOSCREEN4{ float:left;width:176px; height:130px; text-align:center; position: relative;  margin-top: 408px;}
+.CLASS_VIDEOSCREEN9{ float:left;width:160px; height:110px; text-align:center;border:1px solid #7884ac;}
+
+.CLASS_VIDEOSCREEN_USERNAME1{ width:100% ;height:20px; text-align:center;  position: absolute;bottom: 0;color: #fff;}
+.CLASS_VIDEOSCREEN_USERNAME2{ width:100% ;height:20px; text-align:center;background-color:#195498;}
+.CLASS_VIDEOSCREEN_USERNAME4{ width:100%; height:20PX; text-align:center;
+  color: #fff;position: absolute;bottom: 0;}
+.CLASS_VIDEOSCREEN_USERNAME9{ width:100% ;height:20PX; text-align:center;background-color:#195498;}
+
+.CLASS_VIDEOSCREEN_VIDEOAREA1{ width:100%; height:100%; text-align:center;overflow: hidden;}
+.CLASS_VIDEOSCREEN_VIDEOAREA2{ width:247px; height:326px; text-align:center;}
+.CLASS_VIDEOSCREEN_VIDEOAREA4{ width:100%; height:100%; text-align:center;overflow: hidden;}
+.CLASS_VIDEOSCREEN_VIDEOAREA9{ width:160px; height:90px; text-align:center;}
+.TheMsgStyle{ text-align:left; font-size:12px; padding-left:15px;}
+.UserListStyle{ text-align:left; font-size:12px; padding-left:15px; height:20px; overflow:hidden;}
+#AnyChatLocalVideoDiv{width:100%;height:100%;position: absolute;top: 0;left: 0;z-index: 10}
+#room_div_left{display: none;}
+.video-setting-bg{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 99999;
+    text-align: left;
+}
+
+.video-setting{
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+}
+.voice-warp .video-setting{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 999999;
+}
+
+#mytime{
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    height: 40px;
+    line-height: 40px;
+}
+.fn{
+    width: 300px;
+    height: 28px;
+    position: absolute;
+    top: 7px;
+    left: 105px;
+    border-left: 1px solid #fff;
+    text-align: left;
+}
+.v-ico{
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+    margin-left: 25px;
+    cursor: pointer;
+}
+.voice{
+    background: url(../images/voice.png) no-repeat;
+}
+.video{
+    background: url(../images/video.png) no-repeat;
+}
+.change{
+    background: url(../images/change.png) no-repeat;
+}
+
+.voice.select{
+    background: url(../images/voice_click.png) no-repeat;
+}
+.video.select{
+    background: url(../images/video_click.png) no-repeat;
+}
+.change.select{
+    background: url(../images/change.png) no-repeat;
+}
+#leaveroom.close{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background: #c91f37;
+    position: absolute;
+    bottom: 3px;
+    right: 15px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 9999999999;
+}
+.video-warp{
+    width: 100%;
+    height: 100%;
+}
+.voice-warp{
+    width: 100%;
+    height: 100%;
+}
+
+.voice-ico{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: none;
+}
+.MXvoice-warp .voice-ico{
+    display: block;
+}
+
+.voice-warp .fn{
+  width: 300px;
+  height: 28px;
+  position: absolute;
+  top: 64px;
+  left: -17px;
+  border-left: 0; 
+  text-align: left;
+}
+.MXvoice-warp #leaveroom.close {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  border: 0;
+  border-radius: 5px;
+  text-align: center;
+  color: #fff;
+  background: #c91f37;
+  position: absolute;
+  top: 63px;
+  right: 15px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 99999999;
+}
+.MXvoice-warp #mytime{
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    height: 24px;
+    font-size: 20px;
+    line-height: 24px;
+}

@@ -1,0 +1,76 @@
+{
+    "common":{
+
+    },
+    "view":{
+        "header" : {
+            "title":"头部信息",
+            "title_box":{
+                "title":"左侧部分",
+                "logo_name":"敏行",
+                "search_input_placeholder":"搜索",
+                "btn_new_conv":"发起聊天"
+            },
+            "window_bar":{
+                "title":"右侧部分",
+                "btn_min":"最小化",
+                "btn_max":"最大化",
+                "btn_close":"关闭"
+            }
+        },
+        "sidebar":{
+            "title":"左侧边栏",
+            "self_info":{
+                "title":"查看个人信息"
+                },
+            "nav":{
+                "title":"主导航",
+                "btn_chat":{
+                    "title":"敏信",
+                    "fn":{
+
+                    }
+                },
+                "btn_contacts":{
+                    "title":"通讯录",
+                    "fn":{
+
+                    }
+                },
+                "btn_app_centre":{
+                    "title":"我的应用",
+                    "fn":{
+
+                    }
+                },
+                "btn_circle":{
+                    "title":"工作圈",
+                    "fn":{
+
+                    }
+                },
+                "btn_files":{
+                    "title":"文件",
+                    "fn":{
+
+                    }
+                }
+            },
+            "setting":{
+                "title":"setting",
+                "setting_select_language" : "select_language",
+                "message_remind" : "message_remind",
+                "start_up" : "开机启动",
+                "send_message" : "发送消息",
+                "active_window" : "激活窗口",
+                "screenshot" : "截屏"
+            },
+            "logout":{
+                "title":"退出"
+            }
+        }
+    },
+    "others":{
+        "contacts_application": "contacts_application"
+    }
+}
